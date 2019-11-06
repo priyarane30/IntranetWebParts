@@ -1,0 +1,147 @@
+@import '~office-ui-fabric-react/dist/sass/References.scss';
+@import 'node_modules/office-ui-fabric-react/dist/css/fabric.css'; 
+
+.trainingcalender {
+  .container {
+    max-width: 400px;
+    min-height: 260px;
+   // border:1px solid black;
+    margin: 0px auto;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+  }
+  .marginleft{margin-left: 10px;}
+  .row {
+    @include ms-Grid-row;
+    @include ms-fontColor-white;
+    background-color: $ms-color-themeDark;
+    padding: 20px;
+  }
+.react-calendar{
+  margin: 10px !important;
+  }
+  .column {
+    @include ms-Grid-col;
+    @include ms-lg10;
+    @include ms-xl8;
+    @include ms-xlPush2;
+    @include ms-lgPush1;
+  }
+
+  .title {
+    @include ms-font-xl;
+    @include ms-fontColor-white;
+  }
+
+  .subTitle {
+    @include ms-font-l;
+    @include ms-fontColor-white;
+  }
+
+  .description {
+    @include ms-font-l;
+    @include ms-fontColor-white;
+  }
+
+  .button {
+    // Our button
+    text-decoration: none;
+    height: 32px;
+
+    // Primary Button
+    min-width: 80px;
+    background-color: $ms-color-themePrimary;
+    border-color: $ms-color-themePrimary;
+    color: $ms-color-white;
+
+    // Basic Button
+    outline: transparent;
+    position: relative;
+    font-family: "Segoe UI WestEuropean","Segoe UI",-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-size: $ms-font-size-m;
+    font-weight: $ms-font-weight-regular;
+    border-width: 0;
+    text-align: center;
+    cursor: pointer;
+    display: inline-block;
+    padding: 0 16px;
+
+    .label {
+      font-weight: $ms-font-weight-semibold;
+      font-size: $ms-font-size-m;
+      height: 32px;
+      line-height: 32px;
+      margin: 0 4px;
+      vertical-align: top;
+      display: inline-block;
+    }
+  }
+  .sectionbody {
+    margin: 0;
+    padding: 0;
+    float: left;
+    //overflow-y: hidden;
+    width: 100%;
+    height: 205px;
+  }
+  .item {
+  padding-bottom: 6px;
+  padding-top: 6px;
+  padding-left: 4px;
+  padding-right: 0px;
+  clear: both;
+  }
+  .jobsection {
+    overflow-y: auto;
+    height: 174px;
+    float: left;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  .jobitem {
+    margin: 0;
+    padding: 7px 15px;
+    float: left;
+    width: 100%;
+  }
+  .dateitem {
+    margin: 0;
+    padding: 0;
+    background: #fb8318;
+  }
+  .primarytext {
+    font-family: 'open-sans-bold';
+    color: #fff;
+    font-size: 12px;
+    text-align: center;
+    margin: 0;
+    padding: 5px 0 0;
+  }
+.secondarytext {
+  color: #fff;
+  font-size: 12px;
+  text-align: center;
+  margin: 0;
+  padding: 0 0 5px;
+  }
+  .headingborder{
+    margin: 0;
+   // padding: 3px 15px 0px;
+    float: left;
+    width: 100%;
+    border-bottom: 2px solid #26badf;
+  }
+  .topictitle {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+  }
+  .topicdesc {
+    margin: 5px 0 0 0;
+    padding: 0;
+    font-size: 11px;
+    color: #444;
+    font-family: 'open-sans-bold' !important;
+  }
+}

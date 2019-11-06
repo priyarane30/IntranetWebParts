@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "trainingcalender-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/trainingcalender/TrainingcalenderWebPart.js",
+          "manifest": "./src/webparts/trainingcalender/TrainingcalenderWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "TrainingcalenderWebPartStrings": "lib/webparts/trainingcalender/loc/{locale}.js"
+  }
+}

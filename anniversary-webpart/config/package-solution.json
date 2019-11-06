@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "anniversary-webpart-client-side-solution",
+    "id": "5019b656-77d8-49bf-9e77-949536f0feea",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "isDomainIsolated": false
+  },
+  "paths": {
+    "zippedPackage": "solution/anniversary-webpart.sppkg"
+  }
+}

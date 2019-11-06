@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "newjoinee-webpart-client-side-solution",
+    "id": "dcbd8f25-5ac3-49aa-824c-05570f4b5a96",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "isDomainIsolated": false
+  },
+  "paths": {
+    "zippedPackage": "solution/newjoinee-webpart.sppkg"
+  }
+}

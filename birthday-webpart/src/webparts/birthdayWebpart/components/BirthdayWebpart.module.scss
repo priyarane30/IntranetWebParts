@@ -1,21 +1,21 @@
 @import '~office-ui-fabric-react/dist/sass/References.scss';
- @import 'node_modules/office-ui-fabric-react/dist/css/fabric.css'; 
- /*@media all and (min-width:480px)*/
- 
-.birthday {
-
+@import 'node_modules/office-ui-fabric-react/dist/css/fabric.css'; 
+.birthdayWebpart {
   .container {
-    max-width: 700px;
+    max-width: 400px;
+    min-height: 250px;
+    //border: solid 1px black;
+    //background-image:url("./balloons-and-fireworks-background.jpg");
     margin: 0px auto;
-    box-shadow: 4px 2px 4px 2px rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
   }
-  // .birthdaywebpart{
-  //   //background-image: url("./HappyBirthdaytoyou.jpg");
-  // }
-  
   .circularImage{ 
     border-radius: 50%;
   }
+  .alignment{
+    text-align: center;
+  }
+
   .row {
     @include ms-Grid-row;
     @include ms-fontColor-white;

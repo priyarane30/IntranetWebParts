@@ -1,4 +1,4 @@
-export interface IBirthdayProps {
+export interface IBirthdayWebpartProps {
   description: string;
   siteurl: string;
 }

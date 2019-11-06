@@ -1,7 +1,7 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
-  "id": "3affd8ef-b774-425c-8a80-8310bd5bb5f7",
-  "alias": "BirthdayWebPart",
+  "id": "8e7800c7-a446-40ef-ae84-e02a47bdba57",
+  "alias": "BirthdayWebpartWebPart",
   "componentType": "WebPart",
 
   // The "*" signifies that the version should be taken from the package.json
@@ -17,11 +17,11 @@
   "preconfiguredEntries": [{
     "groupId": "5c03119e-3074-46fd-976b-c60198311f70", // Other
     "group": { "default": "Other" },
-    "title": { "default": "birthday" },
-    "description": { "default": "webpart for display employee Birthday" },
+    "title": { "default": "birthday-webpart" },
+    "description": { "default": "Display Employee Birthday" },
     "officeFabricIconFontName": "Page",
     "properties": {
-      "description": "birthday"
+      "description": "birthday-webpart"
     }
   }]
 }

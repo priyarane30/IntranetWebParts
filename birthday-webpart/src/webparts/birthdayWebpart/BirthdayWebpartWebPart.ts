@@ -7,19 +7,19 @@ import {
   PropertyPaneTextField
 } from '@microsoft/sp-webpart-base';
 
-import * as strings from 'BirthdayWebPartStrings';
-import Birthday from './components/Birthday';
-import { IBirthdayProps } from './components/IBirthdayProps';
+import * as strings from 'BirthdayWebpartWebPartStrings';
+import BirthdayWebpart from './components/BirthdayWebpart';
+import { IBirthdayWebpartProps } from './components/IBirthdayWebpartProps';
 
-export interface IBirthdayWebPartProps {
+export interface IBirthdayWebpartWebPartProps {
   description: string;
 }
 
-export default class BirthdayWebPart extends BaseClientSideWebPart<IBirthdayWebPartProps> {
+export default class BirthdayWebpartWebPart extends BaseClientSideWebPart<IBirthdayWebpartWebPartProps> {
 
   public render(): void {
-    const element: React.ReactElement<IBirthdayProps > = React.createElement(
-      Birthday,
+    const element: React.ReactElement<IBirthdayWebpartProps > = React.createElement(
+      BirthdayWebpart,
       {
         description: this.properties.description,
         siteurl: this.context.pageContext.web.absoluteUrl

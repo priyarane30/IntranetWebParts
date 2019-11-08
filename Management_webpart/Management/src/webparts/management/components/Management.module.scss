@@ -1,0 +1,43 @@
+ @import '~office-ui-fabric-react/dist/sass/References.scss';
+:global{ @import 'node_modules/office-ui-fabric-react/dist/css/fabric.css'; } 
+
+.management {
+
+  .containerborder{
+    max-width: 376px;
+    border-style: groove;
+    // border-color: #FFB00F;
+    background-color: rgb(40,40,40);
+ 
+  }
+  .mgnttitle{
+    
+    // @include ms-fontColor-white;
+    font-size: 19px;
+    color: white;
+     padding: 4px;
+    align-content: center;
+    background-color: RGB(255,0,0);
+  }
+  .imgclass{
+    float: right!important;
+  }
+  .exec{
+   padding: 18px;
+  }
+  .ceonameclass{
+    font-size: 14px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: gray;
+    padding: 15px;
+  }
+  .para{
+    color:white;
+    padding: 6px;
+  }
+  .imgphoto{
+    border-radius: 50%;
+    width:100 ;
+    height:100;
+  }
+}

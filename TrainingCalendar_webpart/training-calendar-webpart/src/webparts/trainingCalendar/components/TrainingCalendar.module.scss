@@ -1,0 +1,55 @@
+@import '~@microsoft/sp-office-ui-fabric-core/dist/sass/SPFabricCore.scss';
+
+.trainingCalendar {
+  .container {
+    max-width: 400px;
+    border-style: groove;
+    // border-color: #FFB00F;
+    background-color:white;
+    border-block-color:white;
+  }
+  .Trainingheader{
+    background-color: #1b5583;
+    font-size: 19px;
+    color: white;
+    padding: 9px;
+    align-content: center;
+    margin-bottom: 14px;
+  }
+  .Containerbody{
+    background-color: #E0E0E0;
+    padding: 3px;
+    text-align: left;
+    margin-bottom: 5px;
+  }
+  .trainingdayheader{
+    font-size: 10px;
+    color: black;
+    margin-left: 30px;
+    font-style: italic;
+  }
+  .trainingdateheader{
+    font-size: 16px;
+    color: black;
+    margin-left: 30px;
+  }
+  .Eventsname{
+    background-color: white;
+    font-size: 14px;
+    padding: 3px;
+    color: black;
+  }
+  .vl {
+    border-left: 6px solid green;
+    height: 40px;
+  }
+  .v2 {
+    border-left: 6px solid orangered;
+    height: 40px;
+  }
+  .v3 {
+    border-left: 6px solid brown;
+    height: 40px;
+  }
+  
+}

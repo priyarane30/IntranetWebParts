@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "employee-discussion-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/employeeDiscussion/EmployeeDiscussionWebPart.js",
+          "manifest": "./src/webparts/employeeDiscussion/EmployeeDiscussionWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "EmployeeDiscussionWebPartStrings": "lib/webparts/employeeDiscussion/loc/{locale}.js"
+  }
+}

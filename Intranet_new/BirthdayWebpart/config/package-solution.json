@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "birthday-new",
+    "id": "e9b3c214-7496-4c42-b6d8-58fb4d09aaf0",
+    "version": "1.0.0.1",
+    "includeClientSideAssets": true,
+    "isDomainIsolated": false
+  },
+  "paths": {
+    "zippedPackage": "solution/birthday-webpart.sppkg"
+  }
+}

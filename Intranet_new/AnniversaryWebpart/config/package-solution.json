@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "anniversary-client-side-solution",
+    "id": "fe4a7965-3b51-48e3-9d1f-ed6f84817af7",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "isDomainIsolated": false
+  },
+  "paths": {
+    "zippedPackage": "solution/anniversary.sppkg"
+  }
+}

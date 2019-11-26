@@ -1,0 +1,57 @@
+@import '~@microsoft/sp-office-ui-fabric-core/dist/sass/SPFabricCore.scss';
+
+@import '~office-ui-fabric-react/dist/sass/References.scss';
+:global{ @import 'node_modules/office-ui-fabric-react/dist/css/fabric.css'; } 
+
+
+.managementnew {
+  .container {
+    width: 100%;
+    position: relative;
+    // margin: 0px auto;
+    // box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+  }
+  .containerbody{
+    padding: 40px; 
+   
+  }
+  .title{
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 12px;
+    padding: 9px 19px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background-color: #0b8466;
+    color: #fff;
+  }
+  .headertitle{
+    font-size: 22px;
+    font-weight: 200;
+    margin-top: 18px;
+  }
+  .content{
+    margin-top: 3%;
+    width: 100%;
+    letter-spacing: .2px;
+    word-break: break-word;
+    color: rgb(50, 49, 48);
+  }
+  .contentspacing{
+    margin-left: 40px;
+    padding-left: 0;
+    margin-left: 5%;
+    display: inline-block;
+    padding-top: 80px;
+    color: rgb(50, 49, 48);
+    //font-weight: 400;
+    //font-size: 13px;
+    //font-family: monospace;
+  }
+  .arrow{
+    font-size: 15px;
+  
+  }
+
+  
+}

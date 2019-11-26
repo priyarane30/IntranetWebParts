@@ -6,8 +6,10 @@ import * as jquery from 'jquery';
 
 var month =(new Date().getMonth()+1).toString();
 var date = new Date().getDate().toString();
+var year = new Date().getFullYear().toString();
 console.log("Date::: " +date);
 console.log(month);
+console.log(year);
 
 export interface IAnniversaryState{
   items:[
@@ -18,7 +20,7 @@ export interface IAnniversaryState{
     }
   ]
 }
-export default class Anniversary extends React.Component<IAnniversaryProps, {}> {
+export default class Anniversary extends React.Component<IAnniversaryProps, IAnniversaryState> {
   public constructor(props:IAnniversaryProps, state:IAnniversaryState) {
     super(props);
     this.state = { 
@@ -51,7 +53,7 @@ export default class Anniversary extends React.Component<IAnniversaryProps, {}> 
       success: function(resultData) { 
          //filter Data
          var dataFiltered = resultData.d.results.filter(data =>
-          data.Datejoin == date && data.Month == month
+          data.Datejoin == date && data.Month == month && data.JoinYear != year
         );
         if (dataFiltered != undefined && dataFiltered != null && dataFiltered.length > 0) {
           //if dataFiltered has values
@@ -75,10 +77,9 @@ export default class Anniversary extends React.Component<IAnniversaryProps, {}> 
         <div className={ styles.container }>
           <div className={ styles.row }>
             <div className={ styles.column }>
-            <img  src={require('./content.jpg')}alt="test" />
+            <img  src={require('./content.png')}alt="test" />
             <div className="ms-Grid-col ms-md12">
-                    <div className={styles.BirthdayHeader}>May all your wish come true</div>
-            {/* {this.state.items.map(function(item,key){  */}
+                    <div className={styles.BirthdayHeader}>Congratulations</div>
             {this.state.items.map(function(item,key){
                return (<div>
                    <div className={styles.para}>{item.Title}</div>   

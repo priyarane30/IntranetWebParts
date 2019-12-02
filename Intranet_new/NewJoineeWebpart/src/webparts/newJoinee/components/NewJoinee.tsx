@@ -27,7 +27,7 @@ export default class NewJoinee extends React.Component<INewJoineeProps, INewJoin
     this.state = { 
       items:[
               {
-                "Title":"No Anniversary Today",
+                "Title":"",
                 "DateOfJoining": new Date()
                 
               
@@ -52,7 +52,7 @@ export default class NewJoinee extends React.Component<INewJoineeProps, INewJoin
       success: function(resultData) { 
          //filter Data
          var dataFiltered = resultData.d.results.filter(data =>
-          
+
             data.JoinYear == year 
         );
         if (dataFiltered != undefined && dataFiltered != null && dataFiltered.length > 0) {

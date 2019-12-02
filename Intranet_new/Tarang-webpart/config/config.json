@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "tarang-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/tarang/TarangWebPart.js",
+          "manifest": "./src/webparts/tarang/TarangWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "TarangWebPartStrings": "lib/webparts/tarang/loc/{locale}.js"
+  }
+}

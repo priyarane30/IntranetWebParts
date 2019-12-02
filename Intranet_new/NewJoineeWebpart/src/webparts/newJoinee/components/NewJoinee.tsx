@@ -43,7 +43,7 @@ export default class NewJoinee extends React.Component<INewJoineeProps, INewJoin
   public GetItemsForNewJoinee() {
        
     var BirthdayHandler = this;
-    var anncurl = `${this.props.siteurl}/_api/web/lists/getbytitle('Anniversary')/items`;
+    var anncurl = `${this.props.siteurl}/_api/web/lists/getbytitle('Anniversary')/items?$top=5&$orderby= DateOfJoining desc`;
     jquery.ajax({ 
          
       url: anncurl,
@@ -52,7 +52,8 @@ export default class NewJoinee extends React.Component<INewJoineeProps, INewJoin
       success: function(resultData) { 
          //filter Data
          var dataFiltered = resultData.d.results.filter(data =>
-            data.Month == month && data.JoinYear == year
+          
+            data.JoinYear == year 
         );
         if (dataFiltered != undefined && dataFiltered != null && dataFiltered.length > 0) {
           //if dataFiltered has values

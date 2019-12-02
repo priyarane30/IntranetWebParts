@@ -182,7 +182,7 @@ export  interface IBirthdayState {
     public GetItemsForBirthday() {
        
       var BirthdayHandler = this;
-    
+      debugger;
       var anncurl = `${this.props.siteurl}/_api/web/lists/getbytitle('Birthday')/items`;
       jquery.ajax({ 
            
@@ -205,25 +205,25 @@ export  interface IBirthdayState {
         error : function(jqXHR, textStatus, errorThrown) { 
           console.log(jqXHR);
         }
-      
+       
     }); 
   }
 
 
-renderUser = () => {
-    console.log('counter', this.state.items)
-    {this.state.items.map(function(item,key){      
-    this.setState({Title : item.Title[this.state.counter]}) 
-			console.log('courrentUser', item.Title)
-			console.log(this.state.counter, item.Title.length-1)
-    this.setState({
-        counter : (this.state.counter == item.Title.length-1)?0:this.state.counter+1
-    })
+// renderUser = () => {
+//     console.log('counter', this.state.items)
+//     {this.state.items.map(function(item,key){      
+//     this.setState({Title : item.Title[this.state.counter]}) 
+// 			console.log('courrentUser', item.Title)
+// 			console.log(this.state.counter, item.Title.length-1)
+//     this.setState({
+//         counter : (this.state.counter == item.Title.length-1)?0:this.state.counter+1
+//     })
 
    
 
-  })}
-}
+//   })}
+// }
 
 // public render(): React.ReactElement<IBirthdayProps> {
 //     //render(){
@@ -251,13 +251,13 @@ public render(): React.ReactElement<IBirthdayProps> {
                   
                   {this.state.items.map(function(item,key){ 
                    //    let timername = setTimeout(() => item.Title.length, 2000); 
-                    this.setState({Title : item.Title[this.state.counter]})
-                    this.setState({
-                      counter : (this.state.counter == item.Title.length-1)?0:this.state.counter+1
-                  })
+                  //   this.setState({Title : item.Title[this.state.counter]})
+                  //   this.setState({
+                  //     counter : (this.state.counter == item.Title.length-1)?0:this.state.counter+1
+                  // })
              return (<div>
        
-                          <div className={styles.para}>{this.state.item.Title}</div>    
+                          <div className={styles.para}>{item.Title}</div>    
                            
                                  
                 </div>

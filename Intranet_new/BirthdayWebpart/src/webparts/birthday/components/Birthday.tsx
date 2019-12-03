@@ -181,7 +181,7 @@ export default class Birthday extends React.Component<
   componentWillMount() {
     var timer = setInterval(() => {
       this.renderUser();
-    }, 5000);
+    }, 7000);
   }
   
 

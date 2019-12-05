@@ -16,9 +16,10 @@ export interface IAnniversaryState{
     {
       "Title":string,
       "DateOfJoining": Date
-
     }
-  ]
+  ],
+   "AnniversaryUser":string,
+   "Counter":number
 }
 export default class Anniversary extends React.Component<IAnniversaryProps, IAnniversaryState> {
   public constructor(props:IAnniversaryProps, state:IAnniversaryState) {
@@ -27,19 +28,30 @@ export default class Anniversary extends React.Component<IAnniversaryProps, IAnn
       items:[
               {
                 "Title":"No Anniversary Today",
-                "DateOfJoining": new Date()
-                
-              
+                "DateOfJoining": new Date()             
               }
-            ] 
+            ] ,
+            "AnniversaryUser":"",
+            "Counter":0
     };
   }
-  public componentDidMount() {
-    this.GetItemsForAnniversary();
-  
-   
+ public componentDidMount() {
+    this.GetItemsForAnniversary();  
+  }
+ public  componentWillMount(){
+    var timer = setInterval(() => {
+       this.renderUser()
+    },7000)
   }
 
+  renderUser(){
+    this.setState({
+      AnniversaryUser:this.state.items[this.state.Counter].Title
+    });
+    this.setState({
+      Counter:this.state.Counter == this.state.items.length - 1 ? 0 : this.state.Counter + 1
+    })
+  }
   
   public GetItemsForAnniversary() {
        
@@ -77,18 +89,13 @@ export default class Anniversary extends React.Component<IAnniversaryProps, IAnn
         <div className={ styles.container }>
           <div className={ styles.row }>
             <div className={ styles.column }>
-            <img  src={require('./content.png')}alt="test" />
+            <img  src={require('./02.jpg')}alt="test" />
             <div className="ms-Grid-col ms-md12">
                     <div className={styles.BirthdayHeader}>Congratulations</div>
-            {this.state.items.map(function(item,key){
-               return (<div>
-                   <div className={styles.para}>{item.Title}</div>   
-                                   
-                  </div>
-
-                );
+              {this.state.items.length > 1 ? (
+                <div><div className={styles.para}>{this.state.AnniversaryUser}</div></div>
+              ):(<div className={styles.para}>{this.state.items[0].Title} </div>)
               }
-              )}
               </div>
              
             </div>

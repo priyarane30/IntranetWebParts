@@ -1,14 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
   "solution": {
-    "name": "Anniversary_webpart",
-    "id": "fe4a7965-3b51-48e3-9d1f-ed6f84817af7",
+    "name": "employee-spotlight-client-side-solution",
+    "id": "0c85f886-547f-4f86-b048-f41e4c695ce7",
     "version": "1.0.0.0",
     "includeClientSideAssets": true,
-    "isDomainIsolated": false,
-    "skipFeatureDeployment": true
+    "isDomainIsolated": false
   },
   "paths": {
-    "zippedPackage": "solution/anniversary.sppkg"
+    "zippedPackage": "solution/employee-spotlight.sppkg"
   }
 }

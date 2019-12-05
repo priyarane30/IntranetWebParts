@@ -18,7 +18,9 @@ export interface INewJoineeState{
       "DateOfJoining": Date
 
     }
-  ]
+  ],
+   "NewJoineeUser":string,
+   "counter":number
 }
 
 export default class NewJoinee extends React.Component<INewJoineeProps, INewJoineeState> {
@@ -29,15 +31,29 @@ export default class NewJoinee extends React.Component<INewJoineeProps, INewJoin
               {
                 "Title":"",
                 "DateOfJoining": new Date()
-                
-              
               }
-            ] 
+            ] ,
+            "NewJoineeUser":"",
+            "counter":0
     };
   }
-  public componentDidMount() {
+ public componentDidMount() {
     this.GetItemsForNewJoinee();
   
+  }
+  public componentWillMount(){
+    var timer = setInterval(() => {
+      this.renderUser()
+    },7000)
+  }
+  
+  renderUser(){
+    this.setState({
+      NewJoineeUser:this.state.items[this.state.counter].Title
+    });
+    this.setState({
+      counter:this.state.counter == this.state.items.length - 1 ? 0 : this.state.counter + 1
+    })
   }
 
   public GetItemsForNewJoinee() {
@@ -75,10 +91,17 @@ export default class NewJoinee extends React.Component<INewJoineeProps, INewJoin
         <div className={ styles.container }>
           <div className={ styles.row }>
             <div className={ styles.column }>
-            <img  src={require('./content.jpg')}alt="test" />
+            <img  src={require('./03.jpg')}alt="test" />
             <div className="ms-Grid-col ms-md12">
                     <div className={styles.BirthdayHeader}>Welcome Aboard</div>
-            {this.state.items.map(function(item,key){
+              {this.state.items.length > 1 ? 
+              ( <div className={styles.para}>{this.state.NewJoineeUser}</div> )
+              :
+              ( <div className={styles.para}>{this.state.items[0].Title}</div>)
+            }
+
+
+            {/* {this.state.items.map(function(item,key){
                return (<div>
                    <div className={styles.para}>{item.Title}</div>   
                                    
@@ -86,7 +109,7 @@ export default class NewJoinee extends React.Component<INewJoineeProps, INewJoin
 
                 );
               }
-              )}
+              )} */}
               </div>
             </div>
           </div>

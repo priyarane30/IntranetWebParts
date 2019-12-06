@@ -25,6 +25,7 @@ export interface IBirthdayState {
   ];
   currentBirthdayuser: string;
   counter: number;
+  currentdate: number;
   
 }
 
@@ -44,7 +45,8 @@ export default class Birthday extends React.Component<
         }
       ],
       currentBirthdayuser: "",
-      counter: 0
+      counter: 0,
+      currentdate:  new Date().getFullYear()
       
     };
   }
@@ -83,8 +85,7 @@ export default class Birthday extends React.Component<
 
   public GetItemsForBirthday() {
     var BirthdayHandler = this;
-    var d = new Date().toISOString().substring(0,10) + "T00:00:00";
-    var anncurl = `${this.props.siteurl}/_api/web/lists/getbytitle('Birthday')/items$filter=Birthdate eq datetime'" + d.toISOString() + "'`;
+    var anncurl = `${this.props.siteurl}/_api/web/lists/getbytitle('Birthday')/items`;
     jquery.ajax({
       url: anncurl,
       type: "GET",
@@ -93,21 +94,23 @@ export default class Birthday extends React.Component<
         //filter Data
         console.log("Result-data", resultData.d.results);
         
-        // var dataFiltered = resultData.d.results.filter(
-        //   data => data.Birthdate == date ,
+        var dataFiltered = resultData.d.results.filter(
+data =>new Date(data.Birthdate).getDate()== new Date().getDate() && new Date(data.Birthdate).getMonth() == new Date().getMonth() && data.status == 'Active',
+         // data => data.DateOfBirth == date && data.Month == month && data.status == 'Active',
           
-        // );
-        // if (
-        //   dataFiltered != undefined &&
-        //   dataFiltered != null &&
-        //   dataFiltered.length > 0
-        // ) {
+        );
+        console.log(dataFiltered)
+        if (
+          dataFiltered != undefined &&
+          dataFiltered != null &&
+          dataFiltered.length > 0
+        ) {
           //if dataFiltered has values
           BirthdayHandler.setState({
-           // items: dataFiltered
-           items: resultData.d.results
+            items: dataFiltered
+           //items: resultData.d.results
           });
-      //  }
+       }
       },
       error: function(jqXHR, textStatus, errorThrown) {
         console.log(jqXHR);
@@ -131,9 +134,15 @@ export default class Birthday extends React.Component<
                     <div className={styles.para}>
                       {this.state.currentBirthdayuser}
                     </div>
+                    <div className={styles.para}>
+                      {this.state.currentdate}
+                    </div>
                   </div>
                 ) : (    
-                  <div><div className={styles.para}>{this.state.items[0].Title}</div>   
+                  <div><div className={styles.para}>{this.state.items[0].Title}</div> 
+                  <div className={styles.para}>
+                      {this.state.currentdate}
+                    </div>  
                         {/* <div className={styles.para1}>
                         
                       {this.state.items[0].Birthdate.getDate()}

@@ -28,7 +28,7 @@ export default class Anniversary extends React.Component<IAnniversaryProps, IAnn
       items:[
               {
                 "Title":"No Anniversary Today",
-                "DateOfJoining": new Date()             
+                "DateOfJoining": new Date()         
               }
             ] ,
             "AnniversaryUser":"",
@@ -47,6 +47,7 @@ export default class Anniversary extends React.Component<IAnniversaryProps, IAnn
   renderUser(){
     this.setState({
       AnniversaryUser:this.state.items[this.state.Counter].Title
+
     });
     this.setState({
       Counter:this.state.Counter == this.state.items.length - 1 ? 0 : this.state.Counter + 1
@@ -64,9 +65,11 @@ export default class Anniversary extends React.Component<IAnniversaryProps, IAnn
       headers:{'Accept': 'application/json; odata=verbose;'}, 
       success: function(resultData) { 
          //filter Data
-         var dataFiltered = resultData.d.results.filter(data =>
-          data.Datejoin == date && data.Month == month && data.JoinYear != year
+         var dataFiltered = resultData.d.results.filter(
+         data => data.Status == 'Active' && new Date(data.DateOfJoining).getDate()== new Date().getDate() && new Date(data.DateOfJoining).getMonth() == new Date().getMonth() && new Date(data.DateOfJoining).getFullYear() != new Date().getFullYear(),
+        
         );
+        console.log(dataFiltered)
         if (dataFiltered != undefined && dataFiltered != null && dataFiltered.length > 0) {
           //if dataFiltered has values
           BirthdayHandler.setState({
@@ -92,8 +95,12 @@ export default class Anniversary extends React.Component<IAnniversaryProps, IAnn
             <img  src={require('./02.jpg')}alt="test" />
             <div className="ms-Grid-col ms-md12">
                     <div className={styles.BirthdayHeader}>Congratulations</div>
+                    
               {this.state.items.length > 1 ? (
-                <div><div className={styles.para}>{this.state.AnniversaryUser}</div></div>
+                 
+                <div><div className={styles.para}>{this.state.AnniversaryUser}</div>
+                
+                </div>
               ):(<div className={styles.para}>{this.state.items[0].Title} </div>)
               }
               </div>

@@ -18,12 +18,15 @@ var current_month = m_names[todaydate.getMonth()];
 export interface IBirthdayState {
   items: [
     {
-      Title: string;
-      Birthdate: Date;
+      FirstName: string;
+      LastName:string;
+      DateOfBirth: string;
+      EmploymentStatus:string;
 
     }
   ];
   currentBirthdayuser: string;
+  currentBirthdayuser1: string;
   counter: number;
   currentdate: number;
   
@@ -39,12 +42,15 @@ export default class Birthday extends React.Component<
     this.state = {
       items: [
         {
-          Title: "No Birthday today",
-          Birthdate: new Date()
+          FirstName: "No Birthday today",
+          LastName:"",
+          DateOfBirth: "",
+          EmploymentStatus:""
       
         }
       ],
       currentBirthdayuser: "",
+      currentBirthdayuser1: "",
       counter: 0,
       currentdate:  new Date().getFullYear()
       
@@ -73,7 +79,8 @@ export default class Birthday extends React.Component<
 
   public renderUser() {
     this.setState({
-      currentBirthdayuser: this.state.items[this.state.counter].Title
+      currentBirthdayuser: this.state.items[this.state.counter].FirstName,
+      currentBirthdayuser1: this.state.items[this.state.counter].LastName,
     });
     this.setState({
       counter:
@@ -85,7 +92,7 @@ export default class Birthday extends React.Component<
 
   public GetItemsForBirthday() {
     var BirthdayHandler = this;
-    var anncurl = `${this.props.siteurl}/_api/web/lists/getbytitle('Birthday')/items`;
+    var anncurl = `${this.props.siteurl}/_api/web/lists/getbytitle('EmployeeContact')/items?$top=1000`;
     jquery.ajax({
       url: anncurl,
       type: "GET",
@@ -95,16 +102,11 @@ export default class Birthday extends React.Component<
         console.log("Result-data", resultData.d.results);
         
         var dataFiltered = resultData.d.results.filter(
-data =>new Date(data.Birthdate).getDate()== new Date().getDate() && new Date(data.Birthdate).getMonth() == new Date().getMonth() && data.status == 'Active',
-         // data => data.DateOfBirth == date && data.Month == month && data.status == 'Active',
-          
+        data =>new Date(data.DateOfBirth).getDate()== new Date().getDate() && new Date(data.DateOfBirth).getMonth() == new Date().getMonth() && data.EmploymentStatus != 'Inactive', 
         );
-        console.log(dataFiltered)
-        if (
-          dataFiltered != undefined &&
-          dataFiltered != null &&
-          dataFiltered.length > 0
-        ) {
+
+         if (dataFiltered != undefined && dataFiltered != null && dataFiltered.length > 0) {
+
           //if dataFiltered has values
           BirthdayHandler.setState({
             items: dataFiltered
@@ -123,7 +125,7 @@ data =>new Date(data.Birthdate).getDate()== new Date().getDate() && new Date(dat
         <div className={styles.container}>
           <div className={styles.row}>
             <div className={styles.column}>
-              <img src={require("./01.jpg")} alt="test" />
+              <img src={require("./02.jpg")} alt="test" />
               <div className="ms-Grid-col ms-md12">
                 <div className={styles.BirthdayHeader}>
                   May all your wish come true
@@ -132,22 +134,14 @@ data =>new Date(data.Birthdate).getDate()== new Date().getDate() && new Date(dat
                 {this.state.items.length > 1 ? (
                   <div>
                     <div className={styles.para}>
-                      {this.state.currentBirthdayuser}
+                      {this.state.currentBirthdayuser}{this.state.currentBirthdayuser1}
                     </div>
-                    <div className={styles.para}>
-                      {this.state.currentdate}
-                    </div>
+                   
                   </div>
                 ) : (    
-                  <div><div className={styles.para}>{this.state.items[0].Title}</div> 
-                  <div className={styles.para}>
-                      {this.state.currentdate}
-                    </div>  
-                        {/* <div className={styles.para1}>
-                        
-                      {this.state.items[0].Birthdate.getDate()}
-                      {this.state.items[0].Birthdate.getMonth()}
-                    </div> */}
+                  <div><div className={styles.para}>{this.state.items[0].FirstName}</div> 
+                   
+                       
                   </div>
                 )
                 }

@@ -14,12 +14,16 @@ console.log(year);
 export interface INewJoineeState{
   items:[
     {
-      "Title":string,
-      "DateOfJoining": Date
+      
+      FirstName: string;
+      LastName:string;
+      DateofJoining: string;
+      EmploymentStatus:string;
 
     }
   ],
    "NewJoineeUser":string,
+   "NewJoineeUser1":string,
    "counter":number
 }
 
@@ -29,11 +33,15 @@ export default class NewJoinee extends React.Component<INewJoineeProps, INewJoin
     this.state = { 
       items:[
               {
-                "Title":"",
-                "DateOfJoining": new Date()
+                "FirstName":"",
+                "LastName":"",
+                "DateofJoining":"",
+                "EmploymentStatus":""
+               
               }
             ] ,
             "NewJoineeUser":"",
+            "NewJoineeUser1":"",
             "counter":0
     };
   }
@@ -49,7 +57,8 @@ export default class NewJoinee extends React.Component<INewJoineeProps, INewJoin
   
   renderUser(){
     this.setState({
-      NewJoineeUser:this.state.items[this.state.counter].Title
+      NewJoineeUser:this.state.items[this.state.counter].FirstName,
+      NewJoineeUser1:this.state.items[this.state.counter].LastName,
     });
     this.setState({
       counter:this.state.counter == this.state.items.length - 1 ? 0 : this.state.counter + 1
@@ -59,7 +68,7 @@ export default class NewJoinee extends React.Component<INewJoineeProps, INewJoin
   public GetItemsForNewJoinee() {
        
     var BirthdayHandler = this;
-    var anncurl = `${this.props.siteurl}/_api/web/lists/getbytitle('Anniversary')/items?$top=5&$orderby= DateOfJoining desc`;
+    var anncurl = `${this.props.siteurl}/_api/web/lists/getbytitle('EmployeeContact')/items?$top=5&$orderby= DateOfJoining desc`;
     jquery.ajax({ 
          
       url: anncurl,

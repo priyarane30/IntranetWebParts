@@ -14,11 +14,14 @@ console.log(year);
 export interface IAnniversaryState{
   items:[
     {
-      "Title":string,
-      "DateOfJoining": Date
+      FirstName: string;
+      LastName:string;
+      DateofJoining: string;
+      EmploymentStatus:string;
     }
   ],
    "AnniversaryUser":string,
+   "AnniversaryUser1":string,
    "Counter":number
 }
 export default class Anniversary extends React.Component<IAnniversaryProps, IAnniversaryState> {
@@ -27,11 +30,15 @@ export default class Anniversary extends React.Component<IAnniversaryProps, IAnn
     this.state = { 
       items:[
               {
-                "Title":"No Anniversary Today",
-                "DateOfJoining": new Date()         
+                "FirstName":"No Anniversary Today",
+                "LastName":"",
+                "DateofJoining":"",
+                "EmploymentStatus":""
+                        
               }
             ] ,
             "AnniversaryUser":"",
+            "AnniversaryUser1":"",
             "Counter":0
     };
   }
@@ -46,7 +53,8 @@ export default class Anniversary extends React.Component<IAnniversaryProps, IAnn
 
   renderUser(){
     this.setState({
-      AnniversaryUser:this.state.items[this.state.Counter].Title
+      AnniversaryUser:this.state.items[this.state.Counter].FirstName,
+      AnniversaryUser1:this.state.items[this.state.Counter].LastName
 
     });
     this.setState({
@@ -56,8 +64,8 @@ export default class Anniversary extends React.Component<IAnniversaryProps, IAnn
   
   public GetItemsForAnniversary() {
        
-    var BirthdayHandler = this;
-    var anncurl = `${this.props.siteurl}/_api/web/lists/getbytitle('Anniversary')/items`;
+    var AnniversaryHandler = this;
+    var anncurl = `${this.props.siteurl}/_api/web/lists/getbytitle('EmployeeContact')/items?$top=1000`;
     jquery.ajax({ 
          
       url: anncurl,
@@ -66,13 +74,13 @@ export default class Anniversary extends React.Component<IAnniversaryProps, IAnn
       success: function(resultData) { 
          //filter Data
          var dataFiltered = resultData.d.results.filter(
-         data => data.Status == 'Active' && new Date(data.DateOfJoining).getDate()== new Date().getDate() && new Date(data.DateOfJoining).getMonth() == new Date().getMonth() && new Date(data.DateOfJoining).getFullYear() != new Date().getFullYear(),
+         data => data.EmploymentStatus != 'Inactive' && new Date(data.DateOfJoining).getDate()== new Date().getDate() && new Date(data.DateOfJoining).getMonth() == new Date().getMonth() && new Date(data.DateOfJoining).getFullYear() != new Date().getFullYear(),
         
         );
         console.log(dataFiltered)
         if (dataFiltered != undefined && dataFiltered != null && dataFiltered.length > 0) {
           //if dataFiltered has values
-          BirthdayHandler.setState({
+          AnniversaryHandler.setState({
             items: dataFiltered
           });
         }
@@ -92,16 +100,16 @@ export default class Anniversary extends React.Component<IAnniversaryProps, IAnn
         <div className={ styles.container }>
           <div className={ styles.row }>
             <div className={ styles.column }>
-            <img  src={require('./02.jpg')}alt="test" />
+            <img  src={require('./01.jpg')}alt="test" />
             <div className="ms-Grid-col ms-md12">
                     <div className={styles.BirthdayHeader}>Congratulations</div>
                     
               {this.state.items.length > 1 ? (
                  
-                <div><div className={styles.para}>{this.state.AnniversaryUser}</div>
+                <div><div className={styles.para}>{this.state.AnniversaryUser}{this.state.AnniversaryUser1}</div>
                 
                 </div>
-              ):(<div className={styles.para}>{this.state.items[0].Title} </div>)
+              ):(<div className={styles.para}>{this.state.items[0].FirstName} </div>)
               }
               </div>
              

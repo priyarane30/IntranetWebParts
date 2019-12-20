@@ -7,22 +7,21 @@ import {
   PropertyPaneTextField
 } from '@microsoft/sp-webpart-base';
 
-import * as strings from 'JobOpeningWebPartStrings';
-import JobOpening from './components/JobOpening';
-import { IJobOpeningProps } from './components/IJobOpeningProps';
+import * as strings from 'PollWebPartStrings';
+import Poll from './components/Poll';
+import { IPollProps } from './components/IPollProps';
 
-export interface IJobOpeningWebPartProps {
-  listName: string;
+export interface IPollWebPartProps {
+  description: string;
 }
 
-export default class JobOpeningWebPart extends BaseClientSideWebPart<IJobOpeningWebPartProps> {
+export default class PollWebPart extends BaseClientSideWebPart<IPollWebPartProps> {
 
   public render(): void {
-    const element: React.ReactElement<IJobOpeningProps > = React.createElement(
-      JobOpening,
+    const element: React.ReactElement<IPollProps > = React.createElement(
+      Poll,
       {
-        siteurl: this.context.pageContext.web.absoluteUrl,
-        listName: this.properties.listName
+        siteurl: this.context.pageContext.web.absoluteUrl
       }
     );
 
@@ -48,8 +47,8 @@ export default class JobOpeningWebPart extends BaseClientSideWebPart<IJobOpening
             {
               groupName: strings.BasicGroupName,
               groupFields: [
-                PropertyPaneTextField('listName', {
-                  label: strings.ListFieldLabel
+                PropertyPaneTextField('siteurl', {
+                  label: strings.DescriptionFieldLabel
                 })
               ]
             }

@@ -12,7 +12,7 @@ import Announcement from './components/Announcement';
 import { IAnnouncementProps } from './components/IAnnouncementProps';
 
 export interface IAnnouncementWebPartProps {
-  description: string;
+  listName: string;
 }
 
 export default class AnnouncementWebPart extends BaseClientSideWebPart<IAnnouncementWebPartProps> {
@@ -21,7 +21,8 @@ export default class AnnouncementWebPart extends BaseClientSideWebPart<IAnnounce
     const element: React.ReactElement<IAnnouncementProps > = React.createElement(
       Announcement,
       {
-        siteurl: this.context.pageContext.web.absoluteUrl
+        siteurl: this.context.pageContext.web.absoluteUrl,
+        listName: this.properties.listName
       }
     );
 
@@ -41,14 +42,15 @@ export default class AnnouncementWebPart extends BaseClientSideWebPart<IAnnounce
       pages: [
         {
           header: {
-            description: strings.PropertyPaneDescription
+           description: strings.PropertyPaneDescription
+           
           },
           groups: [
             {
               groupName: strings.BasicGroupName,
               groupFields: [
-                PropertyPaneTextField('description', {
-                  label: strings.DescriptionFieldLabel
+                PropertyPaneTextField('listName', {
+                  label: strings.ListFieldLabel
                 })
               ]
             }

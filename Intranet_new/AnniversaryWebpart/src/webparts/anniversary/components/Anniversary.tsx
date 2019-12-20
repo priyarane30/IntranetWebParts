@@ -14,14 +14,15 @@ console.log(year);
 export interface IAnniversaryState{
   items:[
     {
-      FirstName: string;
-      LastName:string;
+      //FirstName: string;
+      //LastName:string;
+      Title:string;
       DateofJoining: string;
       EmploymentStatus:string;
     }
   ],
    "AnniversaryUser":string,
-   "AnniversaryUser1":string,
+   //"AnniversaryUser1":string,
    "Counter":number
 }
 export default class Anniversary extends React.Component<IAnniversaryProps, IAnniversaryState> {
@@ -30,15 +31,13 @@ export default class Anniversary extends React.Component<IAnniversaryProps, IAnn
     this.state = { 
       items:[
               {
-                "FirstName":"No Anniversary Today",
-                "LastName":"",
+                "Title":"No Anniversary Today",
                 "DateofJoining":"",
                 "EmploymentStatus":""
                         
               }
             ] ,
             "AnniversaryUser":"",
-            "AnniversaryUser1":"",
             "Counter":0
     };
   }
@@ -53,8 +52,8 @@ export default class Anniversary extends React.Component<IAnniversaryProps, IAnn
 
   renderUser(){
     this.setState({
-      AnniversaryUser:this.state.items[this.state.Counter].FirstName,
-      AnniversaryUser1:this.state.items[this.state.Counter].LastName
+      AnniversaryUser:this.state.items[this.state.Counter].Title,
+      //AnniversaryUser1:this.state.items[this.state.Counter].LastName
 
     });
     this.setState({
@@ -74,7 +73,7 @@ export default class Anniversary extends React.Component<IAnniversaryProps, IAnn
       success: function(resultData) { 
          //filter Data
          var dataFiltered = resultData.d.results.filter(
-         data => data.EmploymentStatus != 'Inactive' && new Date(data.DateOfJoining).getDate()== new Date().getDate() && new Date(data.DateOfJoining).getMonth() == new Date().getMonth() && new Date(data.DateOfJoining).getFullYear() != new Date().getFullYear(),
+         data => data.Status == 'Active' && new Date(data.DateofJoining).getDate()== new Date().getDate() && new Date(data.DateofJoining).getMonth() == new Date().getMonth() && new Date(data.DateOfJoining).getFullYear()!= new Date().getFullYear(),
         
         );
         console.log(dataFiltered)
@@ -106,10 +105,10 @@ export default class Anniversary extends React.Component<IAnniversaryProps, IAnn
                     
               {this.state.items.length > 1 ? (
                  
-                <div><div className={styles.para}>{this.state.AnniversaryUser}{this.state.AnniversaryUser1}</div>
+                <div><div className={styles.para}>{this.state.AnniversaryUser}  </div>
                 
                 </div>
-              ):(<div className={styles.para}>{this.state.items[0].FirstName} </div>)
+              ):(<div className={styles.para}>{this.state.items[0].Title} </div>)
               }
               </div>
              

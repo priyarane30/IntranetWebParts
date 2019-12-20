@@ -2,29 +2,49 @@
 @import '~office-ui-fabric-react/dist/sass/References.scss';
 
 .announcement {
+  
   // .container {
-  //   max-width: 700px;
+  //   max-width: 100%;
   //   margin: 0px auto;
-  //   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+  //   border:1px rgba(218, 215, 215, 0.699) solid;
+  //  // box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+  //   color: black;
+  //   min-height: 330px;
   // }
-  .container {
+ 
+  // .header{
+
+  //   @include ms-font-xl;
+  //   margin:0px !important;
+  //   background-color: rgba(202, 201, 201, 0.233);
+  //   color: black;
+  // //  font-family: 'Times New Roman', Times, serif;
+  //   padding: 10px;
+  //  }
+   
+   .container {
     max-width: 100%;
     margin: 0px auto;
     border:1px rgba(218, 215, 215, 0.699) solid;
    // box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
     color: black;
     min-height: 330px;
+    // img{
+    //   width:25px;
+    // }
   }
  
   .header{
-
-    @include ms-font-xl;
-    margin:0px !important;
-    background-color: rgba(202, 201, 201, 0.233);
-    color: black;
+    // margin-left: 10px;
+    font-size: 18px;
+   margin:0px !important;
+    background-color: #F3F2F1;
+    color: #323130;
+    font-weight: 600;
   //  font-family: 'Times New Roman', Times, serif;
     padding: 10px;
    }
+
 
    .sectionbody {
     margin: 0;
@@ -94,19 +114,18 @@
     //white-space: nowrap;
   }
 
-  
  
-  .next {
-    background-color: mediumslateblue;
-    color: white;
-    font-size: 4em;
-    width: 64px;
-    height: 64px;
-    text-align: center;
-    display: inline-block;
-    margin-top: 10px;
-    padding-top: 2px;
-    float: right;
+  .rightalig{
+    float:right;
+    padding-right: 15px;
+    padding-top: 10px;
+    color: #000;
+  }
+  .viewAll{
+    position: absolute;
+    right: 0px;
+    bottom: 0;
+    width:25px;
   }
 
   

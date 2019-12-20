@@ -4,29 +4,30 @@ import { IBirthdayProps } from "./IBirthdayProps";
 import * as jquery from "jquery";
 import styles from "./Birthday.module.scss";
 
-var month = (new Date().getMonth() + 1).toString();
-var date = new Date().getDate().toString();
-var m_names = ['January', 'February', 'March', 
-               'April', 'May', 'June', 'July', 
-               'August', 'September', 'October', 'November', 'December'];
+// var month = (new Date().getMonth() + 1).toString();
+// var date = new Date().getDate().toString();
+// var m_names = ['January', 'February', 'March', 
+//                'April', 'May', 'June', 'July', 
+//                'August', 'September', 'October', 'November', 'December'];
 
-var todaydate = new Date();
-var current_month = m_names[todaydate.getMonth()]; 
+// var todaydate = new Date();
+// var current_month = m_names[todaydate.getMonth()]; 
 
 
 
 export interface IBirthdayState {
   items: [
     {
-      FirstName: string;
-      LastName:string;
+      //FirstName: string;
+     // LastName:string;
+     Title:string;
       DateOfBirth: string;
       EmploymentStatus:string;
 
     }
   ];
   currentBirthdayuser: string;
-  currentBirthdayuser1: string;
+  //currentBirthdayuser1: string;
   counter: number;
   currentdate: number;
   
@@ -42,15 +43,16 @@ export default class Birthday extends React.Component<
     this.state = {
       items: [
         {
-          FirstName: "No Birthday today",
-          LastName:"",
+          //FirstName: "No Birthday today",
+         // LastName:"",
+         "Title":"No Birthday today",
           DateOfBirth: "",
           EmploymentStatus:""
       
         }
       ],
       currentBirthdayuser: "",
-      currentBirthdayuser1: "",
+      //currentBirthdayuser1: "",
       counter: 0,
       currentdate:  new Date().getFullYear()
       
@@ -79,8 +81,8 @@ export default class Birthday extends React.Component<
 
   public renderUser() {
     this.setState({
-      currentBirthdayuser: this.state.items[this.state.counter].FirstName,
-      currentBirthdayuser1: this.state.items[this.state.counter].LastName,
+      currentBirthdayuser: this.state.items[this.state.counter].Title
+      //currentBirthdayuser1: this.state.items[this.state.counter].LastName,
     });
     this.setState({
       counter:
@@ -102,7 +104,7 @@ export default class Birthday extends React.Component<
         console.log("Result-data", resultData.d.results);
         
         var dataFiltered = resultData.d.results.filter(
-        data =>new Date(data.DateOfBirth).getDate()== new Date().getDate() && new Date(data.DateOfBirth).getMonth() == new Date().getMonth() && data.EmploymentStatus != 'Inactive', 
+        data =>new Date(data.DateOfBirth).getDate()== new Date().getDate() && new Date(data.DateOfBirth).getMonth() == new Date().getMonth() && data.Status == 'Active', 
         );
 
          if (dataFiltered != undefined && dataFiltered != null && dataFiltered.length > 0) {
@@ -134,12 +136,12 @@ export default class Birthday extends React.Component<
                 {this.state.items.length > 1 ? (
                   <div>
                     <div className={styles.para}>
-                      {this.state.currentBirthdayuser}{this.state.currentBirthdayuser1}
+                      {this.state.currentBirthdayuser}
                     </div>
                    
                   </div>
                 ) : (    
-                  <div><div className={styles.para}>{this.state.items[0].FirstName}</div> 
+                  <div><div className={styles.para}>{this.state.items[0].Title}</div> 
                    
                        
                   </div>

@@ -20,7 +20,7 @@
     "description": { "default": "JobOpening description" },
     "officeFabricIconFontName": "Page",
     "properties": {
-      "description": "JobOpening"
+      "listName":"OpenPostions"
     }
   }]
 }

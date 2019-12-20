@@ -68,7 +68,8 @@ export default class NewJoinee extends React.Component<INewJoineeProps, INewJoin
   public GetItemsForNewJoinee() {
        
     var BirthdayHandler = this;
-    var anncurl = `${this.props.siteurl}/_api/web/lists/getbytitle('EmployeeContact')/items?$top=5&$orderby= DateOfJoining desc`;
+    var anncurl = `${this.props.siteurl}/_api/web/lists/getbytitle('EmployeeContact')/items?$top=5 &$orderby=ID desc`;
+    //&$orderby= DateOfJoining desc
     jquery.ajax({ 
          
       url: anncurl,
@@ -78,7 +79,7 @@ export default class NewJoinee extends React.Component<INewJoineeProps, INewJoin
          //filter Data
          var dataFiltered = resultData.d.results.filter(data =>
 
-            data.JoinYear == year 
+          data.Status == 'Active' 
         );
         if (dataFiltered != undefined && dataFiltered != null && dataFiltered.length > 0) {
           //if dataFiltered has values
@@ -104,9 +105,9 @@ export default class NewJoinee extends React.Component<INewJoineeProps, INewJoin
             <div className="ms-Grid-col ms-md12">
                     <div className={styles.BirthdayHeader}>Welcome Aboard</div>
               {this.state.items.length > 1 ? 
-              ( <div className={styles.para}>{this.state.NewJoineeUser}</div> )
+              ( <div className={styles.para}>{this.state.NewJoineeUser} {this.state.NewJoineeUser1}</div> )
               :
-              ( <div className={styles.para}>{this.state.items[0].Title}</div>)
+              ( <div className={styles.para}>{this.state.items[0].FirstName}</div>)
             }
 
 

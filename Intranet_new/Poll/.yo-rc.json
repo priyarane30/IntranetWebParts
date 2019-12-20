@@ -1,0 +1,12 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "version": "1.8.1",
+    "libraryName": "poll",
+    "libraryId": "24acd496-1702-4118-9de6-65b4c9402ca6",
+    "environment": "spo",
+    "packageManager": "npm",
+    "isCreatingSolution": false,
+    "isDomainIsolated": true,
+    "componentType": "webpart"
+  }
+}
